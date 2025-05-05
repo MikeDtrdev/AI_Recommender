@@ -1,59 +1,30 @@
 {% extends 'store/base.html' %}
 
-{% block title %}Add New Product | TagSmart Grocery{% endblock %}
+{% block title %}Add Product{% endblock %}
 
 {% block content %}
     <h1 class="page-title">Add New Product</h1>
-    
-    <div class="ai-feature">
-        <h3><i class="fas fa-magic"></i> Smart Tagging Technology</h3>
-        <p>Our AI automatically generates relevant tags for your products based on their names and descriptions. These tags help optimize your catalog and improve product discoverability.</p>
-    </div>
-    
-    <div class="card">
-        <div class="card-header">
-            <i class="fas fa-plus-circle"></i> Product Information
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div>
+            <label for="{{ form.name.id_for_label }}">Product Name:</label>
+            {{ form.name }}
         </div>
-        <div class="card-body">
-            <form method="post">
-                {% csrf_token %}
-                
-                <div class="form-group">
-                    <label for="{{ form.name.id_for_label }}">Product Name:</label>
-                    {{ form.name }}
-                    {% if form.name.errors %}
-                        <div class="error-message">{{ form.name.errors }}</div>
-                    {% endif %}
-                </div>
-                
-                <div class="form-group">
-                    <label for="{{ form.price.id_for_label }}">Price ($):</label>
-                    {{ form.price }}
-                    {% if form.price.errors %}
-                        <div class="error-message">{{ form.price.errors }}</div>
-                    {% endif %}
-                </div>
-                
-                <div class="form-group">
-                    <label for="{{ form.description.id_for_label }}">Description:</label>
-                    {{ form.description }}
-                    {% if form.description.errors %}
-                        <div class="error-message">{{ form.description.errors }}</div>
-                    {% endif %}
-                    <div style="margin-top: 8px; font-size: 0.9rem; color: #666;">
-                        <i class="fas fa-info-circle"></i> Detailed descriptions help our AI generate more accurate tags
-                    </div>
-                </div>
-                
-                <div style="display: flex; justify-content: space-between; margin-top: 30px;">
-                    <a href="{% url 'product_list' %}" class="btn btn-outline">
-                        <i class="fas fa-arrow-left"></i> Back to Products
-                    </a>
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-plus-circle"></i> Add Product
-                    </button>
-                </div>
-            </form>
+
+        <div>
+            <label for="{{ form.price.id_for_label }}">Price:</label>
+            {{ form.price }}
         </div>
-    </div>
+
+        <div>
+            <label for="{{ form.description.id_for_label }}">Description:</label>
+            {{ form.description }}
+        </div>
+
+        <div style="margin-top: 20px;">
+            <button type="submit" class="btn">Add Product</button>
+        </div>
+    </form>
 {% endblock %}
