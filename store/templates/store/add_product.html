@@ -1,5 +1,6 @@
 {% extends 'store/base.html' %}
 
+<<<<<<< HEAD
 {% block title %}Add New Product{% endblock %}
 
 {% block content %}
@@ -25,4 +26,33 @@
             </div>
         </form>
     </div>
+=======
+{% block title %}Add Product{% endblock %}
+
+{% block content %}
+    <h1 class="page-title">Add New Product</h1>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div>
+            <label for="{{ form.name.id_for_label }}">Product Name:</label>
+            {{ form.name }}
+        </div>
+
+        <div>
+            <label for="{{ form.price.id_for_label }}">Price:</label>
+            {{ form.price }}
+        </div>
+
+        <div>
+            <label for="{{ form.description.id_for_label }}">Description:</label>
+            {{ form.description }}
+        </div>
+
+        <div style="margin-top: 20px;">
+            <button type="submit" class="btn">Add Product</button>
+        </div>
+    </form>
+>>>>>>> 0bd3a8c8429d4f1758ebb797636b66addbc8e931
 {% endblock %}

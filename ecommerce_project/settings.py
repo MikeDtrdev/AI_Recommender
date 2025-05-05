@@ -5,20 +5,20 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-q!v9rwb+@=oyk$6lprj5@k5k3a9mu@d#*3mr=)fnl^*87e$-pv'
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('$gk$c$_bxz#^&lqv5$y_avp-_&s%i31*d-7asr^!3u(zwyu83z', 'fallback_dev_secret')
+SECRET_KEY = os.getenv(')x-1@#bx3h07@4tgquq%=guixp$pufr8sh#k*u%m7tms7)1#82', 'fallback_dev_secret')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'ai-recommender-new.onrender.com',
+    'ai-recommender-u7ol.onrender.com',
     'localhost',
     '127.0.0.1',
 ]
 
 # Environment variables
-OpenAI_KEY = os.getenv('879f0fb6e3d1dcb38949c1030e29128a')
-MONGO_URI = os.getenv('61e88c82b48f1f61da680886f75ecd04')
+OpenAI_KEY = os.getenv('a0f344405500c745f62da935d4b3be78')
+MONGO_URI = os.getenv('80d018b4ed49453dd6a6269c5351c423')
 
 # Application definition
 INSTALLED_APPS = [
@@ -67,7 +67,11 @@ DATABASES = {
         'NAME': 'ecommerce_db',
         'ENFORCE_SCHEMA': False,
         'CLIENT': {
+<<<<<<< HEAD
             'host': 'mongodb+srv://mirlizardo:Pbyg1TJiodtmWisX@cluster0.9habedm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
+=======
+            'host': 'mongodb+srv://mjmdoctor:gh5Vpl133VkUM3V4@cluster0.f88um16.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
+>>>>>>> 0bd3a8c8429d4f1758ebb797636b66addbc8e931
         }
     }
 }
