@@ -67,7 +67,7 @@ DATABASES = {
         'NAME': 'ecommerce_db',
         'ENFORCE_SCHEMA': False,
         'CLIENT': {
-            'host': 'mongodb+srv://mirlizardo:Pbyg1TJiodtmWisX@cluster0.9habedm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster',
+            'host': 'mongodb+srv://mirlizardo:Pbyg1TJiodtmWisX@cluster0.9habedm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
         }
     }
 }

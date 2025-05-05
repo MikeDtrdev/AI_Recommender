@@ -1,29 +1,31 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>AI Recommender Ecommerce</title>
-</head>
-<body>
-    <h1>Product List</h1>
-    <ul>
-        {% for product in products %}
-            <li>{{ product.name }} - ${{ product.price }}</li>
-        {% endfor %}
-    </ul>
+{% extends 'store/base.html' %}
 
-    <h2>All Products</h2>
-    <ul>
-        {% for product in products %}
-            <li>{{ product.name }} -- ${{ product.price }}</li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'add_product' %}">Add New Product</a>
+{% block title %}Product Catalog{% endblock %}
 
-    <h2>Recommended Products</h2>
-    <ul>
-        {% for product in recommendations %}
-            <li>{{ product.name }} - ${{ product.price }}</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% block content %}
+    <div style="font-family: 'Roboto', sans-serif; margin: 20px;">
+        <h1 style="font-size: 28px; color: #2c3e50;">Product Catalog</h1>
+
+        <div style="margin-bottom: 30px;">
+            <p style="font-size: 18px; color: #7f8c8d;">Explore our wide range of products</p>
+            <a href="{% url 'add_product' %}" style="text-decoration: none; background-color: #3498db; color: white; padding: 10px 20px; border-radius: 5px; font-size: 16px;">Add New Product</a>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;">
+            {% for product in products %}
+                <div style="border: 1px solid #ecf0f1; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                    <h3 style="font-size: 20px; color: #34495e;">{{ product.name }}</h3>
+                    <p style="font-size: 16px; color: #16a085; font-weight: bold;">₱{{ product.price }}</p>
+                    <p style="font-size: 14px; color: #7f8c8d;">{{ product.description }}</p>
+                    <p style="font-size: 14px; color: #95a5a6;">Tags: {{ product.tags|join:", " }}</p>
+                </div>
+            {% empty %}
+                <div style="margin-top: 20px;">
+                    <h3 style="font-size: 20px; color: #e74c3c;">No Products Available</h3>
+                    <p style="font-size: 16px; color: #95a5a6;">Start by adding your first product!</p>
+                    <a href="{% url 'add_product' %}" style="text-decoration: none; background-color: #3498db; color: white; padding: 10px 20px; border-radius: 5px; font-size: 16px;">Add First Product</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
